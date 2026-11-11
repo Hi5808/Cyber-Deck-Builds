@@ -1,1 +1,26 @@
 id,family,model,soc,ram_gb,storage,tier,status,acquired_from,acquired_date,deck,notes
+AST-SL1680-01,other,Synaptics Astra Machina SL1680 Foundation Series Dev Kit,SL1680,4,32GB eMMC,high,owned,,,,In original box; 8 TOPS edge-AI NPU; preloaded Yocto Linux
+RPI-CM4-01,raspberry-pi,Raspberry Pi Compute Module 4 on Waveshare carrier,BCM2711,4,32GB eMMC + 256GB Samsung NVMe,mid,owned,,,,Preloaded Raspberry Pi OS 64-bit; carrier has RTC and dual-band antenna
+RADXA-CUBIE-A7Z-01,allwinner,Radxa Cubie A7Z,A733 (verify),1,32GB SD,entry,owned,,,,Official Radxa Debian preloaded; heatsink and fan installed; SoC from memory, verify
+RADXA-ZERO-3E-01,rockchip,Radxa Zero 3E,RK3566,2,32GB SD,entry,owned,,,,Official Radxa Debian preloaded
+BPI-M6-01,rockchip,Banana Pi BPI-M6,RK3588,,,high,owned,,,,Android OS with Hulu and Plex preloaded; WiFi module and large heatsink installed; RAM variant not recorded
+BPI-M4ZERO-01,rockchip,Banana Pi M4 Zero,RK3566 (verify),4,32GB eMMC,mid,owned,,,,Includes breakout board; HDMI is glitchy; SoC from memory, verify
+BPI-M2ZERO-01,allwinner,Banana Pi M2 Zero,H2+,0.5,32GB SD,entry,owned,,,,Armbian preloaded
+BPI-CANMV-K230D-01,other,Banana Pi BPI-CanMV-K230D-Zero,K230D,,SD card (preloaded K230D examples),entry,owned,,,,Includes camera and antenna
+OPENMV-H7-01,microcontroller,OpenMV H7,STM32H7,,SD card (preloaded FLIR thermal example),mcu,owned,,,,Includes LCD shield; FLIR thermal module; 2MP camera
+RP2040-PIZERO-01,microcontroller,Waveshare RP2040-PiZero,RP2040,,,mcu,spare,,,,Abandoned project; cannot drive a large HDMI screen
+ONION-MEGA2P-01,other,Onion Mega 2+,,,,entry,owned,,,,Micro Linux dev board; can run OpenWrt
+VOCORE-1-01,other,VoCore 1.0,,,,entry,spare,,,,Micro Linux dev board; can run OpenWrt; NO POWER, not currently working
+WAVGAT-PRO-MINI-01,microcontroller,WavGat Pro Mini,,,,mcu,owned,,,,Microcontroller; specs not recorded
+ESP32CAM-01,microcontroller,ESP32-CAM,ESP32,,,mcu,owned,,,,Basic Wi-Fi and Bluetooth camera dev board
+ESP32CAM-02,microcontroller,ESP32-CAM (advanced),ESP32,,,mcu,owned,,,,Includes battery; antenna; LCD display
+WS-ESP32S3-LCD-01,microcontroller,Waveshare ESP32-S3-LCD-1.47,ESP32-S3,,,mcu,owned,,,,1.47in 172x320 display; RGB LED
+RF-NANO-01,microcontroller,RF Nano Arduino,,,,mcu,owned,,,,Includes red breakout board for controlling a 3D printer
+BADUSB-01,microcontroller,BadUSB (STM32 with ESP8266),STM32 + ESP8266,,,mcu,owned,,,,Intended for Wi-Fi Duck keyboard or mouse emulation
+JDY23-01,accessories/wireless,JDY23 Bluetooth module,JDY23,,,none,owned,,,,BLE module with CR2032 beacon breakout board
+SPARKFUN-SERVO-PHAT-01,accessories/hats,SparkFun Servo pHAT,,,,none,owned,,,,Raspberry Pi HAT for servo control
+WS-EPAPER-HAT-01,accessories/hats,Waveshare ePaper HAT,,,,none,owned,,,,Raspberry Pi HAT for ePaper displays
+GNSS-XIAO-01,accessories/wireless,GNSS module for Seeed Studio XIAO,,,,none,owned,,,,For asset tracking and robotics
+SIM800L-01,accessories/wireless,SIM800L GSM module,SIM800L,,,none,owned,,,,SMS and voice calls
+NRF24L01-01,accessories/wireless,NRF24L01+ with PA and LNA,nRF24L01+,,,none,owned,,,,2.4 GHz RF transceiver; rated up to 1000 m
+OLED-SSD1306-01,accessories/displays,HiLetgo 0.91in I2C OLED SSD1306,SSD1306,,,none,owned,,,,White; self-illuminating; I2C

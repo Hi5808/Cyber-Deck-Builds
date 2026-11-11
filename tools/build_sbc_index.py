@@ -21,13 +21,23 @@ COLUMNS = [
     "id", "family", "model", "soc", "ram_gb", "storage", "tier",
     "status", "acquired_from", "acquired_date", "deck", "notes",
 ]
-TIERS = {"mcu", "entry", "mid", "high"}
+TIERS = {"mcu", "entry", "mid", "high", "none"}  # "none" is for accessories only
 STATUSES = {"owned", "in-deck", "spare", "for-sale", "gone"}
 
 
 def families() -> set[str]:
-    """Family names are the subfolders of sbc/ (hidden folders ignored)."""
-    return {p.name for p in SBC_DIR.iterdir() if p.is_dir() and not p.name.startswith(".")}
+    """Families are the leaf folders under sbc/, e.g. 'raspberry-pi' or 'accessories/hats'."""
+    result = set()
+    for p in SBC_DIR.rglob("*"):
+        if not p.is_dir():
+            continue
+        rel = p.relative_to(SBC_DIR)
+        if any(part.startswith(".") for part in rel.parts):
+            continue
+        if any(child.is_dir() and not child.name.startswith(".") for child in p.iterdir()):
+            continue  # has subfolders, so it is a group, not a family
+        result.add(rel.as_posix())
+    return result
 
 
 def load_rows() -> list[dict]:
@@ -53,6 +63,9 @@ def validate(rows: list[dict]) -> list[str]:
             errors.append(f"{where}: unknown family '{row['family']}'")
         if row["tier"] not in TIERS:
             errors.append(f"{where}: tier must be one of {sorted(TIERS)}")
+        is_accessory = row["family"].startswith("accessories/")
+        if is_accessory != (row["tier"] == "none"):
+            errors.append(f"{where}: accessories must use tier 'none', and only accessories may")
         if row["status"] not in STATUSES:
             errors.append(f"{where}: status must be one of {sorted(STATUSES)}")
         if row["status"] == "in-deck" and not row["deck"]:

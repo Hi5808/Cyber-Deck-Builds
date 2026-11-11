@@ -20,20 +20,25 @@ The script also validates the catalog. It fails if a row uses an unknown family,
 
 ## Families (categories)
 
-Each folder under `sbc/` is one family. The `family` column in `catalog.csv` must match a folder name exactly.
+Each leaf folder under `sbc/` is one family. The `family` column in `catalog.csv` must match the folder path exactly (e.g., `accessories/hats`).
 
 | Folder | What belongs here |
 |--------|-------------------|
-| `raspberry-pi` | Raspberry Pi boards (Zero, 3, 4, 5, Pico-class if Linux-capable, etc.) |
+| `raspberry-pi` | Raspberry Pi boards (Zero, 3, 4, 5, Compute Modules with carriers, etc.) |
 | `orange-pi` | Orange Pi boards |
-| `banana-pi` | Banana Pi / BPI boards |
+| `banana-pi` | Banana Pi / BPI boards that are not Rockchip or Allwinner (e.g., CanMV) |
 | `rockchip` | Rockchip-based boards from any vendor (RK3566, RK3588, etc.) |
-| `allwinner` | Allwinner-based boards (H3, H5, H616, etc.) |
+| `allwinner` | Allwinner-based boards (H2+, H3, H616, A733, etc.) |
 | `amlogic` | Amlogic-based boards (S905, S922, etc.) |
 | `nvidia-jetson` | Jetson Nano, Orin, Xavier, and other Jetson modules/dev kits |
 | `x86` | x86/amd64 mini boards and SBC-style PCs (e.g., Intel/AMD small boards) |
 | `microcontroller` | MCU boards with no full Linux (ESP32, RP2040, STM32, etc.) |
-| `other` | Anything that does not fit above. Move it when a new family gets 3+ boards. |
+| `other` | Linux or AI dev boards that don't fit above (e.g., Synaptics, Onion, VoCore). Move them when a vendor gets 3+ boards. |
+| `accessories/hats` | Raspberry Pi HATs and add-on boards |
+| `accessories/wireless` | Radio and cellular modules (BLE, GSM, GNSS, 2.4 GHz RF) |
+| `accessories/displays` | Standalone display modules |
+
+Accessories are not SBCs, but they are tracked here so the full inventory stays in one place. They always use tier `none`.
 
 ## Tiers
 
@@ -41,10 +46,11 @@ The `tier` column rates what a board is good for in a deck build.
 
 | Tier | Meaning | Examples |
 |------|---------|----------|
-| `mcu` | Microcontroller, no full OS | ESP32, RP2040 |
-| `entry` | Low power, 512 MB to 2 GB RAM, light tasks | Pi Zero 2 W, Orange Pi Zero |
+| `mcu` | Microcontroller, no full OS | ESP32, RP2040, STM32 (OpenMV H7) |
+| `entry` | Low power, under 2 GB RAM, light tasks | Pi Zero 2 W, Orange Pi Zero, Radxa Zero 3E (2 GB) |
 | `mid` | 2 to 8 GB RAM, general Linux, most deck builds | Pi 4, Pi 5 (4 GB), Orange Pi 5 |
 | `high` | 8 GB+ RAM, GPU/NPU, heavy workloads | Jetson Orin, Pi 5 (8 GB+), RK3588 boards |
+| `none` | Accessories only (HATs, modules, displays) | SparkFun Servo pHAT |
 
 ## Status values
 
